@@ -1,0 +1,35 @@
+{
+  "name": "mern-auth",
+  "version": "1.0.0",
+  "description": "MERN app for implementing simple login, registration, form submission with authentication using JWT's",
+  "main": "server.js",
+  "scripts": {
+    "server":"nodemon server.js",
+    "start":"node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumar306/mern-auth-form.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kumar306/mern-auth-form/issues"
+  },
+  "homepage": "https://github.com/kumar306/mern-auth-form#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.1",
+    "concurrently": "^6.4.0",
+    "express": "^4.17.1",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.2",
+    "passport": "^0.5.2",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
