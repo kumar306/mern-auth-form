@@ -1,21 +1,22 @@
 const validator=require("validator");
-const isEmpty=require("is-empty");
+const is_empty=require("is-empty");
 module.exports=function validatelogin(data)
 {
     let errors={};
-    if(isEmpty(data.email))
+    if(is_empty(data.email))
         data.email="";
-    if(isEmpty(data.password))
+    if(is_empty(data.password))
         data.password="";
     if(validator.isEmpty(data.email))
-        error.email="Email required";
+        errors.email="Email required";
     else if(!validator.isEmail(data.email))
-        error.email="Email invalid";
+        errors.email="Email invalid";
     if(validator.isEmpty(data.password))
-        error.password="Password required";
-    return
+        errors.password="Password required";
+    var ret=
     {
-        errors;
-        isValid:isEmpty(errors);
+        errors,
+        isValid:is_empty(errors)
     };
+    return ret;
 };

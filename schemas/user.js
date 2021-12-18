@@ -5,17 +5,13 @@ const user_schema=new schema({
         type:String,
         required:true
     },
-    password: {
+    email: {
         type:String,
         required:true
     },
-    date:{
-        type:Date,
-        required:true
-    },
-    email: {
+    password: {
         type:String,
         required:true
     }
 });
-module.exports=mongoose.model("users",user_schema);
+module.exports=user=mongoose.model("users",user_schema);
