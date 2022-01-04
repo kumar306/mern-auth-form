@@ -8,7 +8,7 @@ const InitialState={};
 const middleware=[thunk];
 
 const store = createStore(
-        ()=>{},
+        rootReducer,
         InitialState,
         compose (
         applyMiddleware(...middleware),

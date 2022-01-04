@@ -8,7 +8,7 @@
     "server": "nodemon server.js",
     "client-install": "npm install --prefix client/client_app",
     "client": "npm start --prefix client/client_app",
-    "dev": "concurrently \"npm run server\" \"npm run client\""  
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
+    "classnames": "^2.3.1",
     "concurrently": "^6.4.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -32,6 +33,9 @@
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "path": "^0.12.7",
+    "prop-types": "^15.8.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {

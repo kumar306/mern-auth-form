@@ -1,6 +1,6 @@
 import './App.css';
 import React, {Component} from "react";
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import Navbar from './components/layout/navbar';
 import Landing from './components/layout/landing';
 import Login from './components/layout/login_page';
@@ -15,11 +15,11 @@ function App() {
     <Navbar />
     <br></br>
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Landing />}></Route>
-      <Route path='/register' element={<Regpage />}></Route>
-      <Route path='/login' element={<Login />}></Route>
-      </Routes>
+    <Switch>
+      <Route exact path='/' component={Landing}></Route>
+      <Route exact path='/login' component={Login}></Route>
+      <Route exact path='/register' component={Regpage}></Route>
+    </Switch>
     </BrowserRouter>
     </Provider>
     </>
