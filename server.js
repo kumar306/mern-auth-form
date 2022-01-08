@@ -5,6 +5,15 @@ const mongoose=require("mongoose");
 const bodyparser=require("body-parser");
 const passport=require("passport");
 const endpoints=require("./routes/api/endpoints");
+//getting the connection string
+//using mongoose to connect with mongodb
+mongoose.connect(process.env.MONGO_URI, 
+    {
+        useNewUrlParser:true 
+    })
+    .then(()=>console.log("successfully connected to mongo database"))
+    .catch(err=>console.log(err));
+
 //using express for routing
 const app=express();
 //to parse URL incoming requests and JSON (body of incoming requests must be parsed to access)
@@ -14,14 +23,6 @@ app.use(
     })
 );
 app.use(bodyparser.json());
-//getting the connection string
-//using mongoose to connect with mongodb
-mongoose.connect(process.env.MONGO_URI, 
-    {
-        useNewUrlParser:true 
-    })
-    .then(()=>console.log("successfully connected to mongo database"))
-    .catch(err=>console.log(err));
 app.use(passport.initialize());
 require("./config/passport")(passport);
 app.use("/api/users",endpoints);

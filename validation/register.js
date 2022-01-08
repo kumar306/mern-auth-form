@@ -1,14 +1,15 @@
 const validator=require("validator");
-const isempty=require("is-empty");
+const isEmpty=require("is-empty");
 module.exports = function validate_input(data) {
     let errors={};
-    if(isempty(data.name))
+    console.log(data.email+" "+data.password);
+    if(isEmpty(data.name))
         data.name="";
-    if(isempty(data.email))
+    if(isEmpty(data.email))
         data.email="";
-    if(isempty(data.password))
+    if(isEmpty(data.password))
         data.password="";
-    if(isempty(data.confirm_pwd))
+    if(isEmpty(data.confirm_pwd))
         data.confirm_pwd="";
     
     if(validator.isEmpty(data.name))
@@ -21,14 +22,15 @@ module.exports = function validate_input(data) {
         errors.password="Password required";
     if(validator.isEmpty(data.confirm_pwd))
         errors.confirm_pwd="Confirmation password required";
-    if(!validator.isLength(data.password, {min:8,max:20}))
-        errors.password="Password should be between 8 and 20 characters";
+    if(!validator.isLength(data.password,{min:8}))
+        errors.password="Password should be minimum 8 characters";
     if(!validator.equals(data.password,data.confirm_pwd))
         errors.confirm_pwd="Passwords don't match";
+        
     var ret=
     {
         errors,
-        isValid:isempty(errors),
+        isValid:isEmpty(errors),
     };
     return ret;
 };
