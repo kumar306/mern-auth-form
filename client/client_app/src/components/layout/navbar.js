@@ -11,12 +11,12 @@ class Navbar extends Component {
                 <div className="container-fluid">
                 <ul className="navbar-nav mx-auto">
                     <li className="nav-item mx-5 px-5">
-                        <a className="nav-link" href="/">
-                        <i className="material-icons">language</i>Home</a>
+                        <Link to="/" className="nav-link" >
+                        <i className="material-icons">language</i>Home</Link>
                     </li>
                     <li className="nav-item mx-5 px-5">
-                        <a className="nav-link" href="/">
-                        <i className="material-icons">face</i>View profile</a>
+                        <Link to="/login" className="nav-link" >
+                        <i className="material-icons">face</i>View profile</Link>
                     </li>
                 </ul>
                 </div>

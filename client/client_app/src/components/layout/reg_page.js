@@ -54,7 +54,7 @@ class Regpage extends Component {
         const { errors } = this.state;
         return (
             <>
-            <Link to='/' className="btn btn-success"><i className="material-icons">keyboard_backspace</i>&nbsp;&nbsp;Back to home page</Link>
+            <Link to='/' className="btn btn-success mx-5"><i className="material-icons">keyboard_backspace</i>&nbsp;&nbsp;Back to home page</Link>
             <br></br><br></br><br></br>
             <div className="text-center bg-light">
             <form className="mx-auto needs-validation" onSubmit={this.onSubmit}>

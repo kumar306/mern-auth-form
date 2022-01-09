@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import store from './store';
 import Dashboard from './components/layout/dashboard';
 import PrivateRoute from './components/privateroute';
-import jwtDecode from 'jwt-decode';
+import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/set_auth_token';
 import {setCurrentUser,logout} from './actions/auth_actions';
 
@@ -17,23 +17,23 @@ if(localStorage.jwtToken)
 {
   const tok=localStorage.jwtToken;
   setAuthToken(tok);
-  const decoded_token=jwtDecode(tok);
+  const decoded_token=jwt_decode(tok);
   store.dispatch(setCurrentUser(decoded_token));
   const time_now=Date.now();
-  if(decoded_token.exp<time_now)
+  /*if(decoded_token.exp<time_now)
   {
     store.dispatch(logout());
     window.location.href="/login";
-  }
+  } */
 }
 
 function App() {
   return (
     <>
     <Provider store={store}>
+    <BrowserRouter>
     <Navbar />
     <br></br>
-    <BrowserRouter>
     <Switch>
       <Route exact path='/' component={Landing}></Route>
       <Route exact path='/login' component={Login}></Route>
