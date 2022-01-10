@@ -42,12 +42,12 @@ class Landing extends Component {
             <>
              <div className="text-center">
              <div className="container-sm p-5 my-5 mx-auto text-center bg-dark text-white">
-             <h1>Form Collection</h1>
+             <h1>TO-DO Website</h1>
              </div>
              <br></br><br></br>
              <Link to='/login' className="btn btn-outline-primary">Login</Link>
              <br></br><br></br>
-        <Link to='/register' className="btn btn-outline-primary">Register</Link> 
+            <Link to='/register' className="btn btn-outline-primary">Register</Link> 
              </div>
             </>
         );

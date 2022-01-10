@@ -25,13 +25,39 @@ class Dashboard extends Component {
     }
 
     handleClick = e => {
-        const tasks=[...this.state.tasks];
+        let tasks=[...this.state.tasks];
         tasks.push([this.state.id,this.state.task]);
         this.setState({id:"",task:"",tasks:tasks});
         for(var i=0;i<tasks.length;i++)
             console.log(tasks[i]);
         this.changeShow();
     }
+
+    handleEnter = e => {
+        if(e.key=='Enter')
+        {
+            e.preventDefault();
+            this.handleClick();
+        }
+    }
+
+    deltask = e => { 
+        if(this.state.tasks.length>0)
+        {
+            let num=prompt('Enter task number to delete');
+            if(num>0 && num<=this.state.tasks.length)
+            {
+                var array=[...this.state.tasks];
+                array.splice(num-1,1);
+                this.setState({tasks:array});
+            }
+            else if(num==null)
+                return;
+            else
+                alert('Task number given is invalid')
+        }
+    }
+
 
     async changeShow() {
         await this.setState({list_showing:true});
@@ -55,7 +81,10 @@ class Dashboard extends Component {
             </div>
             <br></br><br></br>
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popup">Add task</button>
-            <div className="modal" id="popup">
+            <br></br><br></br>
+            <button type="button" className="btn btn-primary" onClick={this.deltask}>Delete task</button>
+            <br></br><br></br>
+            <div className="modal" id="popup" onKeyPress={this.handleEnter}>
                 <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -80,7 +109,9 @@ class Dashboard extends Component {
                 </div>
             </div></div>
             <br></br><br></br>
-            <ol className="list-group list-group-numbered">{list_items}</ol>
+            <div className='d-flex'>
+            <ol className="list-group list-group-numbered w-50 mx-auto">{list_items}</ol>
+            </div>
             <br></br><br></br>
             <button className="btn btn-outline-primary btn-lg" onClick={this.onLogout}>Logout</button>
             </div>
