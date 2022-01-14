@@ -51,3 +51,5 @@ JWT payload is created and stored in Local storage on successful sign in
 
 ![image](https://user-images.githubusercontent.com/29352643/149526108-949781dd-5a85-4d60-b3be-71f77b935600.png)
 
+
+Further improvements to the site are being implemented.
